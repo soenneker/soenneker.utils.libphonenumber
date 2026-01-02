@@ -14,7 +14,7 @@
         <AssemblyName>Soenneker.Utils.Libphonenumber</AssemblyName>
         <PackageId>Soenneker.Utils.Libphonenumber</PackageId>
         <PackageTags>utils libphonenumber csharp singleton threadsafe libphonenumberutil util dotnet c# .net</PackageTags>
-        <Copyright>Copyright © 2025 Jake Soenneker</Copyright>
+        <Copyright>Copyright © 2025-2026 Jake Soenneker</Copyright>
         <Authors>Jake Soenneker</Authors>
         <Company>https://soenneker.com</Company>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
