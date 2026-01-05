@@ -11,15 +11,19 @@ namespace Soenneker.Utils.Libphonenumber;
 public sealed class LibphonenumberUtil : ILibphonenumberUtil
 {
     private readonly AsyncSingleton<PhoneNumberUtil> _client;
+    private readonly ILogger<LibphonenumberUtil> _logger;
 
     public LibphonenumberUtil(ILogger<LibphonenumberUtil> logger)
     {
-        _client = new AsyncSingleton<PhoneNumberUtil>(() =>
-        {
-            logger.LogDebug("Instantiating libphonenumber (PhoneNumberUtil)...");
+        _logger = logger;
+        _client = new AsyncSingleton<PhoneNumberUtil>(CreateUtil);
+    }
 
-            return PhoneNumberUtil.GetInstance();
-        });
+    private PhoneNumberUtil CreateUtil()
+    {
+        _logger.LogDebug("Instantiating libphonenumber (PhoneNumberUtil)...");
+
+        return PhoneNumberUtil.GetInstance();
     }
 
     public ValueTask<PhoneNumberUtil> Get(CancellationToken cancellationToken = default)
