@@ -1,20 +1,19 @@
-﻿using Soenneker.Utils.Libphonenumber.Abstract;
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Utils.Libphonenumber.Abstract;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Utils.Libphonenumber.Tests;
 
-[Collection("Collection")]
-public class LibphonenumberUtilTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class LibphonenumberUtilTests : HostedUnitTest
 {
     private readonly ILibphonenumberUtil _util;
 
-    public LibphonenumberUtilTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public LibphonenumberUtilTests(Host host) : base(host)
     {
         _util = Resolve<ILibphonenumberUtil>(true);
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
