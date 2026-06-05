@@ -10,5 +10,10 @@ namespace Soenneker.Utils.Libphonenumber.Abstract;
 /// </summary>
 public interface ILibphonenumberUtil : IAsyncDisposable, IDisposable
 {
+    /// <summary>
+    /// Gets the value.
+    /// </summary>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task containing the result of the operation.</returns>
     ValueTask<PhoneNumberUtil> Get(CancellationToken cancellationToken = default);
 }
