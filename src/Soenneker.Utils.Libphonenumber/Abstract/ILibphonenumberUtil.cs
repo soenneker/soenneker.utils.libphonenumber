@@ -11,9 +11,9 @@ namespace Soenneker.Utils.Libphonenumber.Abstract;
 public interface ILibphonenumberUtil : IAsyncDisposable, IDisposable
 {
     /// <summary>
-    /// Gets the value.
+    /// Returns the lazily initialized libphonenumber parser instance.
     /// </summary>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>A task containing the result of the operation.</returns>
+    /// <param name="cancellationToken">Signals that the operation should stop.</param>
+    /// <returns>The shared phone-number utility.</returns>
     ValueTask<PhoneNumberUtil> Get(CancellationToken cancellationToken = default);
 }

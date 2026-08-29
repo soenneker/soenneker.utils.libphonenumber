@@ -12,6 +12,7 @@ public static class LibphonenumberUtilRegistrar
     /// <summary>
     /// Adds <see cref="ILibphonenumberUtil"/> as a singleton service. <para/>
     /// </summary>
+    /// <returns>Adds <see cref="ILibphonenumberUtil"/> as a singleton service. <para/>.</returns>
     public static IServiceCollection AddLibphonenumberUtilAsSingleton(this IServiceCollection services)
     {
         services.TryAddSingleton<ILibphonenumberUtil, LibphonenumberUtil>();
@@ -22,6 +23,7 @@ public static class LibphonenumberUtilRegistrar
     /// <summary>
     /// Adds <see cref="ILibphonenumberUtil"/> as a scoped service. <para/>
     /// </summary>
+    /// <returns>Adds <see cref="ILibphonenumberUtil"/> as a scoped service. <para/>.</returns>
     public static IServiceCollection AddLibphonenumberUtilAsScoped(this IServiceCollection services)
     {
         services.TryAddScoped<ILibphonenumberUtil, LibphonenumberUtil>();
