@@ -4,10 +4,26 @@
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.utils.libphonenumber/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.utils.libphonenumber/actions/workflows/codeql.yml)
 
 # ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Utils.Libphonenumber
-### An async thread-safe singleton for a libphonenumber-csharp instance
+An async thread-safe singleton for a libphonenumber-csharp instance.
 
 ## Installation
 
-```
+```bash
 dotnet add package Soenneker.Utils.Libphonenumber
 ```
+
+## Quick start
+
+```csharp
+using Soenneker.Utils.Libphonenumber.Registrars;
+
+services.AddLibphonenumberUtilAsSingleton();
+```
+
+Then inject `ILibphonenumberUtil` wherever you need it.
+
+## Common operations
+
+- `Get()` - Gets the value.
+- `Dispose()` - Releases resources used by the current instance.
+- `DisposeAsync()` - Asynchronously releases resources owned by the phone-number utility; await it when the utility's lifetime ends.
