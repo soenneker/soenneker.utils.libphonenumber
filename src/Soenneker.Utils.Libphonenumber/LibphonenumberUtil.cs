@@ -7,7 +7,6 @@ using PhoneNumbers;
 
 namespace Soenneker.Utils.Libphonenumber;
 
-/// <inheritdoc cref="ILibphonenumberUtil"/>
 public sealed class LibphonenumberUtil : ILibphonenumberUtil
 {
     private readonly AsyncSingleton<PhoneNumberUtil> _client;
@@ -31,18 +30,11 @@ public sealed class LibphonenumberUtil : ILibphonenumberUtil
         return _client.Get(cancellationToken);
     }
 
-    /// <summary>
-    /// Releases resources used by the current instance.
-    /// </summary>
     public void Dispose()
     {
         _client.Dispose();
     }
 
-    /// <summary>
-    /// Asynchronously releases resources used by the current instance.
-    /// </summary>
-    /// <returns>A task that represents the asynchronous operation.</returns>
     public ValueTask DisposeAsync()
     {
         return _client.DisposeAsync();

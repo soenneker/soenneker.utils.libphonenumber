@@ -22,8 +22,37 @@ services.AddLibphonenumberUtilAsSingleton();
 
 Then inject `ILibphonenumberUtil` wherever you need it.
 
-## Common operations
+## Parse, validate, and format
 
-- `Get()` - Gets the value.
-- `Dispose()` - Releases resources used by the current instance.
-- `DisposeAsync()` - Asynchronously releases resources owned by the phone-number utility; await it when the utility's lifetime ends.
+```csharp
+using PhoneNumbers;
+
+PhoneNumberUtil phoneNumbers = await libphonenumberUtil.Get(cancellationToken);
+
+try
+{
+    PhoneNumber number = phoneNumbers.Parse("(212) 555-0100", "US");
+
+    if (phoneNumbers.IsValidNumber(number))
+    {
+        string e164 = phoneNumbers.Format(number, PhoneNumberFormat.E164);
+        // +12125550100
+    }
+}
+catch (NumberParseException)
+{
+    // The input could not be interpreted as a phone number.
+}
+```
+
+Pass an ISO 3166-1 alpha-2 region such as `"US"` when parsing a national number. For an input
+already beginning with `+` and a country calling code, the region can be `null`. Parsing only
+interprets the text; call `IsPossibleNumber` or `IsValidNumber` when validity matters.
+
+`Get` lazily returns the shared `PhoneNumberUtil` supplied by libphonenumber-csharp. Cache the
+returned reference within an operation if you need it repeatedly. The cancellation token applies
+while obtaining the lazy value; it does not affect later synchronous parsing or formatting calls.
+
+The scoped registrar is available when the wrapper must follow a scope, but the underlying
+libphonenumber instance remains shared. Let dependency injection dispose the wrapper; callers do
+not own the returned `PhoneNumberUtil`.
