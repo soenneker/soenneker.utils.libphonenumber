@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>An async thread-safe singleton for a libphonenumber-csharp instance</Description>
+        <Description>Provides PhoneNumberUtil for parsing, validating, and formatting international phone numbers.</Description>
         <Version Condition="'$(BUILD_VERSION)' == ''">4.0.0</Version>
         <Version Condition="'$(BUILD_VERSION)' != ''">$(BUILD_VERSION)</Version>
         <AssemblyName>Soenneker.Utils.Libphonenumber</AssemblyName>
