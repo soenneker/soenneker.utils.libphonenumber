@@ -7,6 +7,7 @@ using PhoneNumbers;
 
 namespace Soenneker.Utils.Libphonenumber;
 
+/// <inheritdoc cref="ILibphonenumberUtil" />
 public sealed class LibphonenumberUtil : ILibphonenumberUtil
 {
     private readonly AsyncSingleton<PhoneNumberUtil> _client;
