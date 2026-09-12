@@ -46,6 +46,6 @@
     <ItemGroup>
         <PackageReference Include="libphonenumber-csharp" Version="9.0.39" />
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.12" />
-        <PackageReference Include="Soenneker.Utils.AsyncSingleton" Version="4.0.837" />
+        <PackageReference Include="Soenneker.Utils.AsyncSingleton" Version="4.0.842" />
     </ItemGroup>
 </Project>
